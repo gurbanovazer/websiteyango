@@ -25,7 +25,7 @@
     "title": "Niyə Yango ilə sürücülük etməli?",
     "subtitle": "Yango ilə əməkdaşlığın çevikliyi və faydalarından həzz alan sürücülər icmasına qoşul.",
     "flexibleHours": {
-      "title": "Çevik saatlar",
+      "title": "Rahat iş saatları",
       "description": "Öz cədvəlini təyin et və sənə uyğun vaxtda işlə."
     },
     "highBonuses": {
@@ -59,11 +59,11 @@
   "faq": {
     "title": "Tez-tez verilən suallar",
     "question1": "Yango ilə sürücülük etmək üçün tələblər nələrdir?",
-    "answer1": "Yango ilə sürücülük etmək üçün ən azı 21 yaşında olmalısan, etibarlı sürücülük vəsiqəsin olmalı, uyğun avtomobilə sahib olmalı və ya ona çıxışın olmalı və arxa plan yoxlamasından keçməlisən. Avtomobilin 2015-ci il və ya daha yenisi olmalı və avtomobil müayinəsindən keçməlidir.",
+    "answer1": "Yango ilə sürücülük etmək üçün ən azı 21 yaşında olmalısan, etibarlı sürücülük vəsiqəsin olmalı, uyğun avtomobilə sahib olmalı və ya ona çıxışın olmalı və arxa plan yoxlamasından keçməlisən. Avtomobilin 2017-ci il və ya daha yenisi olmalı və avtomobil müayinəsindən keçməlidir.",
     "question2": "Necə maaş alıram?",
-    "answer2": "Ödənişlər həftəlik olaraq işlənir və birbaşa bank hesabına köçürülür. Qazancını sürücü proqramı vasitəsilə real vaxtda izləyə və ətraflı ödəniş tarixçəsinə baxa bilərsən.",
+    "answer2": "Ödənişlər gündəlik olaraq işlənir və birbaşa bank hesabına köçürülür. Qazancını sürücü proqramı vasitəsilə real vaxtda izləyə və ətraflı ödəniş tarixçəsinə baxa bilərsən.",
     "question3": "Yango hansı dəstəyi təklif edir?",
-    "answer3": "Yango sürücü proqramı, telefon və e-poçt vasitəsilə 24/7 dəstək təqdim edir. Həmçinin sürücü təlimi resursları, təhlükəsizlik məsləhətləri və sürücü kimi uğur qazanmağa kömək edəcək müntəzəm yeniləmələr təklif edirik."
+    "answer3": "Yango sürücü proqramı, telefon və e-poçt vasitəsilə 24/7 dəstək təqdim edir. ."
   },
   "cta": {
     "title": "Yola çıxmağa hazırsan?",
