@@ -82,6 +82,26 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
 
       alert(t('deliveryForm.successMessage'));
       onClose();
+      
+      // Call email notification function
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-application-notification', {
+          body: {
+            record: {
+              ...applicationData,
+              created_at: new Date().toISOString()
+            },
+            table: 'delivery_applications'
+          }
+        });
+        
+        if (emailError) {
+          console.error('Error sending email notification:', emailError);
+        }
+      } catch (emailError) {
+        console.error('Error calling email function:', emailError);
+      }
+      
       setCurrentStep(1);
       setVehicleType(null);
       setFormData({
