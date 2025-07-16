@@ -47,7 +47,7 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (currentStep < 3) {
+    if (currentStep < 2) {
       setCurrentStep(currentStep + 1);
     } else {
       console.log('Delivery form submitted:', { vehicleType, ...formData });
@@ -60,27 +60,13 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
         email: '',
         phone: '',
         dateOfBirth: '',
-        licenseNumber: '',
-        licenseState: '',
-        licenseExpiry: '',
-        vehicleMake: '',
-        vehicleModel: '',
-        vehicleYear: '',
-        vehicleColor: '',
-        licensePlate: '',
-        bikeMake: '',
-        bikeModel: '',
-        bikeYear: '',
-        bikeColor: '',
-        bikeLicensePlate: ''
       });
     }
   };
 
   const steps = [
     t('deliveryForm.vehicleType'),
-    t('deliveryForm.personalInfo'),
-    t('deliveryForm.licenseVehicleInfo')
+    t('deliveryForm.personalInfo')
   ];
 
   if (!isOpen) return null;
@@ -255,221 +241,15 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
             </div>
           )}
 
-          {currentStep === 3 && (
-            <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-gray-900">
-                {t('deliveryForm.licenseVehicleInfo')}
-              </h3>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('deliveryForm.licenseNumber')} *
-                </label>
-                <input
-                  type="text"
-                  name="licenseNumber"
-                  value={formData.licenseNumber}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('deliveryForm.licenseState')} *
-                  </label>
-                  <input
-                    type="text"
-                    name="licenseState"
-                    value={formData.licenseState}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('deliveryForm.licenseExpiry')} *
-                  </label>
-                  <input
-                    type="date"
-                    name="licenseExpiry"
-                    value={formData.licenseExpiry}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                  />
-                </div>
-              </div>
-
-              {vehicleType === 'car' ? (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.vehicleMake')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="vehicleMake"
-                        value={formData.vehicleMake}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="e.g., Toyota"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.vehicleModel')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="vehicleModel"
-                        value={formData.vehicleModel}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="e.g., Camry"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.vehicleYear')} *
-                      </label>
-                      <input
-                        type="number"
-                        name="vehicleYear"
-                        value={formData.vehicleYear}
-                        onChange={handleInputChange}
-                        required
-                        min="2010"
-                        max="2024"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.vehicleColor')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="vehicleColor"
-                        value={formData.vehicleColor}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.licensePlate')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="licensePlate"
-                        value={formData.licensePlate}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.bikeMake')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="bikeMake"
-                        value={formData.bikeMake}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="e.g., Honda"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.bikeModel')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="bikeModel"
-                        value={formData.bikeModel}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="e.g., CBR"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.bikeYear')} *
-                      </label>
-                      <input
-                        type="number"
-                        name="bikeYear"
-                        value={formData.bikeYear}
-                        onChange={handleInputChange}
-                        required
-                        min="2010"
-                        max="2024"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.bikeColor')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="bikeColor"
-                        value={formData.bikeColor}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('deliveryForm.licensePlate')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="bikeLicensePlate"
-                        value={formData.bikeLicensePlate}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-                </>
-              )}
-
-              <div className="bg-yellow-50 p-4 rounded-lg">
-                <h4 className="font-medium text-yellow-900 mb-2">{t('deliveryForm.nextSteps')}</h4>
-                <ul className="text-sm text-yellow-800 space-y-1">
-                  <li>• {t('deliveryForm.reviewTime')}</li>
-                  <li>• {t('deliveryForm.backgroundCheck')}</li>
-                  <li>• {t('deliveryForm.vehicleInspection')}</li>
-                  <li>• {t('deliveryForm.emailUpdates')}</li>
-                  <li>• {t('deliveryForm.trainingSession')}</li>
-                </ul>
-              </div>
+          {currentStep === 2 && (
+            <div className="bg-yellow-50 p-4 rounded-lg">
+              <h4 className="font-medium text-yellow-900 mb-2">{t('deliveryForm.nextSteps')}</h4>
+              <ul className="text-sm text-yellow-800 space-y-1">
+                <li>• {t('deliveryForm.reviewTime')}</li>
+                <li>• {t('deliveryForm.backgroundCheck')}</li>
+                <li>• {t('deliveryForm.emailUpdates')}</li>
+                <li>• {t('deliveryForm.trainingSession')}</li>
+              </ul>
             </div>
           )}
 
@@ -496,7 +276,7 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
                   : 'bg-red-600 text-white hover:bg-red-700'
               }`}
             >
-              {currentStep === 3 ? t('deliveryForm.submitApplication') : t('deliveryForm.next')}
+              {currentStep === 2 ? t('deliveryForm.submitApplication') : t('deliveryForm.next')}
             </button>
           </div>
         </form>
