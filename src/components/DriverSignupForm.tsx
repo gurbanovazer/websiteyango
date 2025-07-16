@@ -13,7 +13,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
-    dateOfBirth: '',
     mobileNumber: '',
     hasOwnCar: '',
     carModel: '',
@@ -47,7 +46,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
     try {
       const applicationData: DriverApplication = {
         full_name: formData.fullName,
-        date_of_birth: formData.dateOfBirth,
         mobile_number: formData.mobileNumber,
         has_own_car: formData.hasOwnCar === 'yes',
         car_model: formData.hasOwnCar === 'yes' ? formData.carModel : null,
@@ -73,7 +71,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
         setIsSubmitted(false);
         setFormData({
           fullName: '',
-          dateOfBirth: '',
           mobileNumber: '',
           hasOwnCar: '',
           carModel: '',
@@ -130,20 +127,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
                 type="text"
                 name="fullName"
                 value={formData.fullName}
-                onChange={handleInputChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                {t('driverForm.dateOfBirth')} *
-              </label>
-              <input
-                type="date"
-                name="dateOfBirth"
-                value={formData.dateOfBirth}
                 onChange={handleInputChange}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"

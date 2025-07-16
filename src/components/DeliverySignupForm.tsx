@@ -16,7 +16,6 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
-    dateOfBirth: '',
     
     // Driver Information
     licenseNumber: '',
@@ -67,7 +66,6 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
         full_name: formData.fullName,
         email: '', // Empty email as it's no longer collected
         phone: formData.phone,
-        date_of_birth: formData.dateOfBirth
       };
 
       const { error } = await supabase
@@ -91,7 +89,6 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
         setFormData({
           fullName: '',
           phone: '',
-          dateOfBirth: '',
           licenseNumber: '',
           licenseState: '',
           licenseExpiry: '',
@@ -270,19 +267,6 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
                     type="tel"
                     name="phone"
                     value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('deliveryForm.dateOfBirth')} *
-                  </label>
-                  <input
-                    type="date"
-                    name="dateOfBirth"
-                    value={formData.dateOfBirth}
                     onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"

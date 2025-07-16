@@ -13,7 +13,6 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 export interface DriverApplication {
   id?: string;
   full_name: string;
-  date_of_birth: string;
   mobile_number: string;
   has_own_car: boolean;
   car_model?: string;
@@ -29,7 +28,6 @@ export interface DeliveryApplication {
   full_name: string;
   email?: string;
   phone: string;
-  date_of_birth: string;
   created_at?: string;
   updated_at?: string;
 }
