@@ -65,25 +65,6 @@ const EntrepreneurSignupForm: React.FC<EntrepreneurSignupFormProps> = ({ isOpen,
       alert(t('entrepreneurForm.successMessage'));
       onClose();
       
-      // Call email notification function
-      try {
-        const { error: emailError } = await supabase.functions.invoke('send-application-notification', {
-          body: {
-            record: {
-              ...applicationData,
-              created_at: new Date().toISOString()
-            },
-            table: 'entrepreneur_applications'
-          }
-        });
-        
-        if (emailError) {
-          console.warn('Email notification not sent:', emailError);
-        }
-      } catch (emailError) {
-        console.warn('Email notification service unavailable:', emailError);
-      }
-      
       setFormData({
         firstName: '',
         lastName: '',

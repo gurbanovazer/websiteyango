@@ -67,25 +67,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
       alert(t('driverForm.successMessage'));
       onClose();
       
-      // Call email notification function
-      try {
-        const { error: emailError } = await supabase.functions.invoke('send-application-notification', {
-          body: {
-            record: {
-              ...applicationData,
-              created_at: new Date().toISOString()
-            },
-            table: 'driver_applications'
-          }
-        });
-        
-        if (emailError) {
-          console.warn('Email notification not sent:', emailError);
-        }
-      } catch (emailError) {
-        console.warn('Email notification service unavailable:', emailError);
-      }
-      
       setFormData({
         fullName: '',
         dateOfBirth: '',
