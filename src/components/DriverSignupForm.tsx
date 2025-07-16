@@ -47,7 +47,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
     try {
       const applicationData: DriverApplication = {
         full_name: formData.fullName,
-        date_of_birth: formData.dateOfBirth,
         mobile_number: formData.mobileNumber,
         has_own_car: formData.hasOwnCar === 'yes',
         car_model: formData.hasOwnCar === 'yes' ? formData.carModel : null,
@@ -73,7 +72,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
         setIsSubmitted(false);
         setFormData({
           fullName: '',
-          dateOfBirth: '',
           mobileNumber: '',
           hasOwnCar: '',
           carModel: '',
