@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { supabase, type DriverApplication } from '../lib/supabase';
 
 interface DriverSignupFormProps {
   isOpen: boolean;
@@ -38,18 +39,46 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Driver form submitted:', formData);
-    alert(t('driverForm.successMessage'));
-    onClose();
-    setFormData({
-      fullName: '',
-      dateOfBirth: '',
-      mobileNumber: '',
-      hasOwnCar: '',
-      carModel: '',
-      carYear: '',
-      workPreferences: []
-    });
+    handleSubmitToSupabase();
+  };
+
+  const handleSubmitToSupabase = async () => {
+    try {
+      const applicationData: DriverApplication = {
+        full_name: formData.fullName,
+        date_of_birth: formData.dateOfBirth,
+        mobile_number: formData.mobileNumber,
+        has_own_car: formData.hasOwnCar === 'yes',
+        car_model: formData.hasOwnCar === 'yes' ? formData.carModel : null,
+        car_year: formData.hasOwnCar === 'yes' ? parseInt(formData.carYear) : null,
+        work_preferences: formData.hasOwnCar === 'no' ? formData.workPreferences : null
+      };
+
+      const { error } = await supabase
+        .from('driver_applications')
+        .insert([applicationData]);
+
+      if (error) {
+        console.error('Error submitting driver application:', error);
+        alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
+        return;
+      }
+
+      alert(t('driverForm.successMessage'));
+      onClose();
+      setFormData({
+        fullName: '',
+        dateOfBirth: '',
+        mobileNumber: '',
+        hasOwnCar: '',
+        carModel: '',
+        carYear: '',
+        workPreferences: []
+      });
+    } catch (error) {
+      console.error('Error submitting driver application:', error);
+      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
+    }
   };
 
   if (!isOpen) return null;

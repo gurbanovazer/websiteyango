@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Car, Bike } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { supabase, type DeliveryApplication } from '../lib/supabase';
 
 interface DeliverySignupFormProps {
   isOpen: boolean;
@@ -50,7 +51,35 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
     if (currentStep < 2) {
       setCurrentStep(currentStep + 1);
     } else {
-      console.log('Delivery form submitted:', { vehicleType, ...formData });
+      handleSubmitToSupabase();
+    }
+  };
+
+  const handleSubmitToSupabase = async () => {
+    if (!vehicleType) {
+      alert('Пожалуйста, выберите тип транспорта');
+      return;
+    }
+
+    try {
+      const applicationData: DeliveryApplication = {
+        vehicle_type: vehicleType,
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        date_of_birth: formData.dateOfBirth
+      };
+
+      const { error } = await supabase
+        .from('delivery_applications')
+        .insert([applicationData]);
+
+      if (error) {
+        console.error('Error submitting delivery application:', error);
+        alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
+        return;
+      }
+
       alert(t('deliveryForm.successMessage'));
       onClose();
       setCurrentStep(1);
@@ -59,8 +88,11 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
         fullName: '',
         email: '',
         phone: '',
-        dateOfBirth: '',
+        dateOfBirth: ''
       });
+    } catch (error) {
+      console.error('Error submitting delivery application:', error);
+      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
     }
   };
 

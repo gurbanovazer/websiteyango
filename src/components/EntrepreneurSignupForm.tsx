@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Building, Users, DollarSign } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { supabase, type EntrepreneurApplication } from '../lib/supabase';
 
 interface EntrepreneurSignupFormProps {
   isOpen: boolean;
@@ -37,17 +38,44 @@ const EntrepreneurSignupForm: React.FC<EntrepreneurSignupFormProps> = ({ isOpen,
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Entrepreneur form submitted:', formData);
-    alert(t('entrepreneurForm.successMessage'));
-    onClose();
-    setFormData({
-      firstName: '',
-      lastName: '',
-      phone: '',
-      companyName: '',
-      numberOfCars: '',
-      workConditions: []
-    });
+    handleSubmitToSupabase();
+  };
+
+  const handleSubmitToSupabase = async () => {
+    try {
+      const applicationData: EntrepreneurApplication = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        phone: formData.phone,
+        company_name: formData.companyName || null,
+        number_of_cars: parseInt(formData.numberOfCars),
+        work_conditions: formData.workConditions
+      };
+
+      const { error } = await supabase
+        .from('entrepreneur_applications')
+        .insert([applicationData]);
+
+      if (error) {
+        console.error('Error submitting entrepreneur application:', error);
+        alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
+        return;
+      }
+
+      alert(t('entrepreneurForm.successMessage'));
+      onClose();
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        companyName: '',
+        numberOfCars: '',
+        workConditions: []
+      });
+    } catch (error) {
+      console.error('Error submitting entrepreneur application:', error);
+      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
+    }
   };
 
   if (!isOpen) return null;
