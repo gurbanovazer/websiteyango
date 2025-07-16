@@ -43,17 +43,17 @@
   },
   "howItWorks": {
     "title": "Necə işləyir",
-    "signUp": {
-      "title": "Qeydiyyat",
-      "description": "Məlumatlarını və avtomobil təfərrüatlarını təqdim et."
+    "submitApplication": {
+      "title": "Müraciət göndərin",
+      "description": "Əlaqə məlumatlarınızla sadə formanı doldurun."
     },
-    "getApproved": {
-      "title": "Təsdiq al",
-      "description": "Arxa plan yoxlaması və avtomobil müayinəsini tamamla."
+    "provideDocuments": {
+      "title": "Sənədləri təqdim edin",
+      "description": "Təsdiqləmə üçün lazımi sənədləri yükləyin."
     },
-    "startDriving": {
-      "title": "Sürücülüyə başla",
-      "description": "Səyahət sorğularını qəbul et və qazanmağa başla."
+    "startEarning": {
+      "title": "Qazanmağa başlayın",
+      "description": "Tətbiqə giriş əldə edin və sifarişləri qəbul etməyə başlayın."
     }
   },
   "faq": {

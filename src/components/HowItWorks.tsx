@@ -8,20 +8,20 @@ const HowItWorks: React.FC = () => {
   const steps = [
     {
       icon: <UserPlus className="w-8 h-8 text-white" />,
-      title: t('howItWorks.signUp.title'),
-      description: t('howItWorks.signUp.description'),
+      title: t('howItWorks.submitApplication.title'),
+      description: t('howItWorks.submitApplication.description'),
       color: "bg-blue-600"
     },
     {
       icon: <Shield className="w-8 h-8 text-white" />,
-      title: t('howItWorks.getApproved.title'),
-      description: t('howItWorks.getApproved.description'),
+      title: t('howItWorks.provideDocuments.title'),
+      description: t('howItWorks.provideDocuments.description'),
       color: "bg-green-600"
     },
     {
       icon: <Car className="w-8 h-8 text-white" />,
-      title: t('howItWorks.startDriving.title'),
-      description: t('howItWorks.startDriving.description'),
+      title: t('howItWorks.startEarning.title'),
+      description: t('howItWorks.startEarning.description'),
       color: "bg-red-600"
     }
   ];
