@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ onSignUpClick, onDeliveryClick, onEntre
             <div className="flex-shrink-0 flex items-center">
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Yango_%28entreprise%29.png" 
-                alt="Yango Logo" 
+                alt="Yango Azerbaijan - Sürücü Qəbulu və Taksi İşi" 
                 className="h-8 w-auto"
               />
             </div>

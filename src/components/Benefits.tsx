@@ -29,10 +29,10 @@ const Benefits: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50" aria-labelledby="benefits-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 id="benefits-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {t('benefits.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -44,15 +44,17 @@ const Benefits: React.FC = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
+              itemScope
+              itemType="https://schema.org/Service"
               className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex items-center justify-center w-16 h-16 bg-red-50 rounded-lg mb-6 mx-auto">
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center" itemProp="name">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 text-center leading-relaxed">
+              <p className="text-gray-600 text-center leading-relaxed" itemProp="description">
                 {benefit.description}
               </p>
             </div>
