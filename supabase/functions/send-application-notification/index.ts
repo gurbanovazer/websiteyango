@@ -95,7 +95,14 @@ serve(async (req) => {
     // Send email using Resend API
     const resendApiKey = Deno.env.get('RESEND_API_KEY')
     if (!resendApiKey) {
-      throw new Error('RESEND_API_KEY environment variable is not set')
+      console.warn('RESEND_API_KEY environment variable is not set - skipping email notification')
+      return new Response(
+        JSON.stringify({ success: true, message: 'Application saved successfully (email notification skipped - API key not configured)' }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 200,
+        }
+      )
     }
 
     const emailResponse = await fetch('https://api.resend.com/emails', {

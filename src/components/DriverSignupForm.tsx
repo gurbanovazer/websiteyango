@@ -80,10 +80,10 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
         });
         
         if (emailError) {
-          console.error('Error sending email notification:', emailError);
+          console.warn('Email notification not sent:', emailError);
         }
       } catch (emailError) {
-        console.error('Error calling email function:', emailError);
+        console.warn('Email notification service unavailable:', emailError);
       }
       
       setFormData({
