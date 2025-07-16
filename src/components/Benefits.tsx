@@ -13,8 +13,8 @@ const Benefits: React.FC = () => {
     },
     {
       icon: <DollarSign className="w-8 h-8 text-red-600" />,
-      title: t('benefits.competitiveEarnings.title'),
-      description: t('benefits.competitiveEarnings.description')
+      title: t('benefits.highBonuses.title'),
+      description: t('benefits.highBonuses.description')
     },
     {
       icon: <Percent className="w-8 h-8 text-red-600" />,
