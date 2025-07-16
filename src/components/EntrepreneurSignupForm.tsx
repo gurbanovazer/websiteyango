@@ -10,6 +10,7 @@ interface EntrepreneurSignupFormProps {
 
 const EntrepreneurSignupForm: React.FC<EntrepreneurSignupFormProps> = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -62,17 +63,21 @@ const EntrepreneurSignupForm: React.FC<EntrepreneurSignupFormProps> = ({ isOpen,
         return;
       }
 
-      alert(t('entrepreneurForm.successMessage'));
-      onClose();
+      setIsSubmitted(true);
       
-      setFormData({
-        firstName: '',
-        lastName: '',
-        phone: '',
-        companyName: '',
-        numberOfCars: '',
-        workConditions: []
-      });
+      // Auto close after 3 seconds
+      setTimeout(() => {
+        onClose();
+        setIsSubmitted(false);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          companyName: '',
+          numberOfCars: '',
+          workConditions: []
+        });
+      }, 3000);
     } catch (error) {
       console.error('Error submitting entrepreneur application:', error);
       alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
@@ -80,6 +85,22 @@ const EntrepreneurSignupForm: React.FC<EntrepreneurSignupFormProps> = ({ isOpen,
   };
 
   if (!isOpen) return null;
+
+  if (isSubmitted) {
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-lg max-w-md w-full p-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">Müraciət göndərildi!</h3>
+          <p className="text-gray-600">Tezliklə sizinlə əlaqə saxlayacağıq.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -236,27 +257,6 @@ const EntrepreneurSignupForm: React.FC<EntrepreneurSignupFormProps> = ({ isOpen,
               </div>
             </div>
 
-            <div className="bg-yellow-50 p-4 rounded-lg">
-              <h4 className="font-medium text-yellow-900 mb-2">{t('entrepreneurForm.whatHappensNext')}</h4>
-              <ul className="text-sm text-yellow-800 space-y-1">
-                <li>• {t('entrepreneurForm.contactTime')}</li>
-                <li>• {t('entrepreneurForm.discussTerms')}</li>
-                <li>• {t('entrepreneurForm.vehicleInspection')}</li>
-                <li>• {t('entrepreneurForm.driverOnboarding')}</li>
-                <li>• {t('entrepreneurForm.launchFleet')}</li>
-              </ul>
-            </div>
-
-            <div className="bg-red-50 p-4 rounded-lg">
-              <h4 className="font-medium text-red-900 mb-2">{t('entrepreneurForm.entrepreneurBenefits')}</h4>
-              <ul className="text-sm text-red-800 space-y-1">
-                <li>• {t('entrepreneurForm.platformAccess')}</li>
-                <li>• {t('entrepreneurForm.marketingSupport')}</li>
-                <li>• {t('entrepreneurForm.technicalSupport')}</li>
-                <li>• {t('entrepreneurForm.flexibleModels')}</li>
-                <li>• {t('entrepreneurForm.analyticsTools')}</li>
-              </ul>
-            </div>
           </div>
 
           <div className="flex justify-end mt-8 pt-6 border-t border-gray-200">

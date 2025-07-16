@@ -10,6 +10,7 @@ interface DriverSignupFormProps {
 
 const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     dateOfBirth: '',
@@ -64,18 +65,22 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
         return;
       }
 
-      alert(t('driverForm.successMessage'));
-      onClose();
+      setIsSubmitted(true);
       
-      setFormData({
-        fullName: '',
-        dateOfBirth: '',
-        mobileNumber: '',
-        hasOwnCar: '',
-        carModel: '',
-        carYear: '',
-        workPreferences: []
-      });
+      // Auto close after 3 seconds
+      setTimeout(() => {
+        onClose();
+        setIsSubmitted(false);
+        setFormData({
+          fullName: '',
+          dateOfBirth: '',
+          mobileNumber: '',
+          hasOwnCar: '',
+          carModel: '',
+          carYear: '',
+          workPreferences: []
+        });
+      }, 3000);
     } catch (error) {
       console.error('Error submitting driver application:', error);
       alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
@@ -83,6 +88,22 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
   };
 
   if (!isOpen) return null;
+
+  if (isSubmitted) {
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-lg max-w-md w-full p-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">Müraciət göndərildi!</h3>
+          <p className="text-gray-600">Tezliklə sizinlə əlaqə saxlayacağıq.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -220,24 +241,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
               </div>
             )}
 
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-medium text-blue-900 mb-2">{t('driverForm.workOptionsExplained')}</h4>
-              <ul className="text-sm text-blue-800 space-y-1">
-                <li>• <strong>{t('driverForm.rent')}:</strong> {t('driverForm.rentExplained')}</li>
-                <li>• <strong>{t('driverForm.salaryBased')}:</strong> {t('driverForm.salaryExplained')}</li>
-                <li>• <strong>{t('driverForm.percentBased')}:</strong> {t('driverForm.percentExplained')}</li>
-              </ul>
-            </div>
-
-            <div className="bg-yellow-50 p-4 rounded-lg">
-              <h4 className="font-medium text-yellow-900 mb-2">{t('driverForm.nextSteps')}</h4>
-              <ul className="text-sm text-yellow-800 space-y-1">
-                <li>• {t('driverForm.reviewTime')}</li>
-                <li>• {t('driverForm.backgroundCheck')}</li>
-                <li>• {t('driverForm.vehicleInspection')}</li>
-                <li>• {t('driverForm.emailUpdates')}</li>
-              </ul>
-            </div>
           </div>
 
           <div className="flex justify-end mt-8 pt-6 border-t border-gray-200">

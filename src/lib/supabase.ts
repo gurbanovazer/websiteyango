@@ -27,7 +27,7 @@ export interface DeliveryApplication {
   id?: string;
   vehicle_type: string;
   full_name: string;
-  email: string;
+  email?: string;
   phone: string;
   date_of_birth: string;
   created_at?: string;

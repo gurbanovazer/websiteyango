@@ -12,9 +12,9 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
   const { t } = useTranslation();
   const [currentStep, setCurrentStep] = useState(1);
   const [vehicleType, setVehicleType] = useState<'car' | 'bike' | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
-    email: '',
     phone: '',
     dateOfBirth: '',
     
@@ -65,7 +65,7 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
       const applicationData: DeliveryApplication = {
         vehicle_type: vehicleType,
         full_name: formData.fullName,
-        email: formData.email,
+        email: '', // Empty email as it's no longer collected
         phone: formData.phone,
         date_of_birth: formData.dateOfBirth
       };
@@ -80,17 +80,33 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
         return;
       }
 
-      alert(t('deliveryForm.successMessage'));
-      onClose();
+      setIsSubmitted(true);
       
-      setCurrentStep(1);
-      setVehicleType(null);
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        dateOfBirth: ''
-      });
+      // Auto close after 3 seconds
+      setTimeout(() => {
+        onClose();
+        setIsSubmitted(false);
+        setCurrentStep(1);
+        setVehicleType(null);
+        setFormData({
+          fullName: '',
+          phone: '',
+          dateOfBirth: '',
+          licenseNumber: '',
+          licenseState: '',
+          licenseExpiry: '',
+          vehicleMake: '',
+          vehicleModel: '',
+          vehicleYear: '',
+          vehicleColor: '',
+          licensePlate: '',
+          bikeMake: '',
+          bikeModel: '',
+          bikeYear: '',
+          bikeColor: '',
+          bikeLicensePlate: ''
+        });
+      }, 3000);
     } catch (error) {
       console.error('Error submitting delivery application:', error);
       alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.');
@@ -103,6 +119,22 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
   ];
 
   if (!isOpen) return null;
+
+  if (isSubmitted) {
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-lg max-w-md w-full p-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">Müraciət göndərildi!</h3>
+          <p className="text-gray-600">Tezliklə sizinlə əlaqə saxlayacağıq.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -229,20 +261,6 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('deliveryForm.email')} *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                />
-              </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -271,18 +289,6 @@ const DeliverySignupForm: React.FC<DeliverySignupFormProps> = ({ isOpen, onClose
                   />
                 </div>
               </div>
-            </div>
-          )}
-
-          {currentStep === 2 && (
-            <div className="bg-yellow-50 p-4 rounded-lg">
-              <h4 className="font-medium text-yellow-900 mb-2">{t('deliveryForm.nextSteps')}</h4>
-              <ul className="text-sm text-yellow-800 space-y-1">
-                <li>• {t('deliveryForm.reviewTime')}</li>
-                <li>• {t('deliveryForm.backgroundCheck')}</li>
-                <li>• {t('deliveryForm.emailUpdates')}</li>
-                <li>• {t('deliveryForm.trainingSession')}</li>
-              </ul>
             </div>
           )}
 
