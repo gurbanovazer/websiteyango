@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
                 className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
               >
                 <FaWhatsapp className="text-2xl" />
-                əlaqə saxla
+                {t('hero.contactWhatsApp')}
               </button>
             </div>
           </div>

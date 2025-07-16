@@ -72,7 +72,13 @@
   },
   "footer": {
     "contactUs": "Bizimlə əlaqə",
-    "copyright": "© 2023 Yango. Bütün hüquqlar qorunur."
+    "copyright": "© 2025 Yango. Bütün hüquqlar qorunur."
+  },
+  "hero": {
+    "title": "Yango ilə daha çox qazan",
+    "subtitle": "Öz cədvəlinə görə qazanc əldə et. Yango ilə sürücülük etmək üçün qeydiyyatdan keç və bu gün qazanmağa başla.",
+    "getStarted": "Başla",
+    "contactWhatsApp": "əlaqə saxla"
   },
   "driverForm": {
     "title": "Yango Sürücüsü ol",
