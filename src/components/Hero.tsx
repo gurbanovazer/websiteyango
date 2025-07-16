@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { FaWhatsapp } from 'react-icons/fa';
 
 interface HeroProps {
   onGetStartedClick: () => void;
@@ -7,6 +8,10 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
   const { t } = useTranslation();
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/994552646469', '_blank');
+  };
 
   return (
     <section className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white">
@@ -26,12 +31,21 @@ const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
             <p className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
               {t('hero.subtitle')}
             </p>
-            <button
-              onClick={onGetStartedClick}
-              className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              {t('hero.getStarted')}
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={onGetStartedClick}
+                className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                {t('hero.getStarted')}
+              </button>
+              <button
+                onClick={handleWhatsAppClick}
+                className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+              >
+                <FaWhatsapp className="text-2xl" />
+                əlaqə saxla
+              </button>
+            </div>
           </div>
         </div>
       </div>
