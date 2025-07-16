@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, DollarSign, Percent } from 'lucide-react';
+import { Clock, DollarSign, Percent, CreditCard } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Benefits: React.FC = () => {
@@ -20,6 +20,11 @@ const Benefits: React.FC = () => {
       icon: <Percent className="w-8 h-8 text-red-600" />,
       title: t('benefits.lowCommissions.title'),
       description: t('benefits.lowCommissions.description')
+    },
+    {
+      icon: <CreditCard className="w-8 h-8 text-red-600" />,
+      title: t('benefits.dailyCashout.title'),
+      description: t('benefits.dailyCashout.description')
     }
   ];
 
@@ -35,7 +40,7 @@ const Benefits: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={index}

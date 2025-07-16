@@ -35,6 +35,10 @@
     "lowCommissions": {
       "title": "Aşağı komissiyalar",
       "description": "Rəqabətli komissiya dərəcələri ilə daha çox qazanın."
+    },
+    "dailyCashout": {
+      "title": "Gündəlik nağdlaşdırma",
+      "description": "Pulunuzu hər gün əlavə komissiya olmadan nağdlaşdırın."
     }
   },
   "howItWorks": {
