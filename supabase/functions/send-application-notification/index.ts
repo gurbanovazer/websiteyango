@@ -112,7 +112,7 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Yango Notifications <notifications@yourdomain.com>',
+        from: 'Yango Notifications <mr.azerq@gmail.com>',
         ...emailPayload,
       }),
     })
