@@ -1,0 +1,184 @@
+{
+  "header": {
+    "about": "Haqqımızda",
+    "forDrivers": "Sürücülər üçün",
+    "forDelivery": "Kuryerlər üçün",
+    "forEntrepreneurs": "Sahibkarlar üçün",
+    "becomeDriver": "Sürücü ol"
+  },
+  "hero": {
+    "title": "Yango ilə daha çox qazan",
+    "subtitle": "Öz cədvəlinə görə qazanc əldə et. Yango ilə sürücülük etmək üçün qeydiyyatdan keç və bu gün qazanmağa başla.",
+    "getStarted": "Başla"
+  },
+  "serviceSelection": {
+    "title": "Xidmət növünü seçin",
+    "subtitle": "Hansı sahədə işləmək istəyirsiniz?",
+    "taxiDriver": "Taksi Sürücüsü",
+    "taxiDriverDesc": "Sərnişin daşıma xidməti göstərin",
+    "delivery": "Çatdırılma",
+    "deliveryDesc": "Yemək və məhsul çatdırılması",
+    "entrepreneur": "Sahibkar",
+    "entrepreneurDesc": "Avtomobil parkı ilə biznes qurun"
+  },
+  "benefits": {
+    "title": "Niyə Yango ilə sürücülük etməli?",
+    "subtitle": "Yango ilə əməkdaşlığın çevikliyi və faydalarından həzz alan sürücülər icmasına qoşul.",
+    "flexibleHours": {
+      "title": "Çevik saatlar",
+      "description": "Öz cədvəlini təyin et və sənə uyğun vaxtda işlə."
+    },
+    "competitiveEarnings": {
+      "title": "Rəqabətli qazanc",
+      "description": "Rəqabətli tariflər və bonuslarla gəlirini maksimuma çatdır."
+    },
+    "lowCommissions": {
+      "title": "Aşağı komissiyalar",
+      "description": "Rəqabətli komissiya dərəcələri ilə daha çox qazanın."
+    }
+  },
+  "howItWorks": {
+    "title": "Necə işləyir",
+    "signUp": {
+      "title": "Qeydiyyat",
+      "description": "Məlumatlarını və avtomobil təfərrüatlarını təqdim et."
+    },
+    "getApproved": {
+      "title": "Təsdiq al",
+      "description": "Arxa plan yoxlaması və avtomobil müayinəsini tamamla."
+    },
+    "startDriving": {
+      "title": "Sürücülüyə başla",
+      "description": "Səyahət sorğularını qəbul et və qazanmağa başla."
+    }
+  },
+  "faq": {
+    "title": "Tez-tez verilən suallar",
+    "question1": "Yango ilə sürücülük etmək üçün tələblər nələrdir?",
+    "answer1": "Yango ilə sürücülük etmək üçün ən azı 21 yaşında olmalısan, etibarlı sürücülük vəsiqəsin olmalı, uyğun avtomobilə sahib olmalı və ya ona çıxışın olmalı və arxa plan yoxlamasından keçməlisən. Avtomobilin 2015-ci il və ya daha yenisi olmalı və avtomobil müayinəsindən keçməlidir.",
+    "question2": "Necə maaş alıram?",
+    "answer2": "Ödənişlər həftəlik olaraq işlənir və birbaşa bank hesabına köçürülür. Qazancını sürücü proqramı vasitəsilə real vaxtda izləyə və ətraflı ödəniş tarixçəsinə baxa bilərsən.",
+    "question3": "Yango hansı dəstəyi təklif edir?",
+    "answer3": "Yango sürücü proqramı, telefon və e-poçt vasitəsilə 24/7 dəstək təqdim edir. Həmçinin sürücü təlimi resursları, təhlükəsizlik məsləhətləri və sürücü kimi uğur qazanmağa kömək edəcək müntəzəm yeniləmələr təklif edirik."
+  },
+  "cta": {
+    "title": "Yola çıxmağa hazırsan?",
+    "subtitle": "Yango sürücü icmasına qoşul və öz şərtlərinlə qazanmağa başla.",
+    "signUp": "Sürücü olmaq üçün qeydiyyat"
+  },
+  "footer": {
+    "contactUs": "Bizimlə əlaqə",
+    "copyright": "© 2023 Yango. Bütün hüquqlar qorunur."
+  },
+  "driverForm": {
+    "title": "Yango Sürücüsü ol",
+    "fullName": "Tam ad",
+    "dateOfBirth": "Doğum tarixi",
+    "mobileNumber": "Mobil nömrə",
+    "hasOwnCar": "Öz avtomobilin varmı?",
+    "selectOption": "Seçim et",
+    "yes": "Bəli",
+    "no": "Xeyr",
+    "carModel": "Avtomobil modeli",
+    "carYear": "Avtomobil ili",
+    "workPreferences": "Hansı iş növü daha üstünlükdür? (Birdən çox seçim edə bilərsən)",
+    "rent": "İcarə",
+    "salaryBased": "Maaş əsaslı",
+    "percentBased": "Faiz əsaslı",
+    "selectAtLeastOne": "Zəhmət olmasa ən azı bir iş üstünlüyü seç",
+    "workOptionsExplained": "İş Seçimləri İzahı:",
+    "rentExplained": "İcarə: Yango-dan avtomobil icarəyə götürürsən",
+    "salaryExplained": "Maaş əsaslı: Sabit aylıq maaş",
+    "percentExplained": "Faiz əsaslı: Hər səyahətdən faiz qazanırsan",
+    "nextSteps": "Növbəti addımlar:",
+    "reviewTime": "Müraciətini 24-48 saat ərzində nəzərdən keçirəcəyik",
+    "backgroundCheck": "Arxa plan yoxlaması aparılacaq",
+    "vehicleInspection": "Avtomobil müayinəsi planlaşdırılacaq (tətbiq olunarsa)",
+    "emailUpdates": "Müraciət statusu haqqında e-poçt yeniləmələri alacaqsan",
+    "submitApplication": "Müraciəti göndər",
+    "successMessage": "Sürücü müraciəti uğurla göndərildi! Məlumatlarını nəzərdən keçirəcəyik və 24-48 saat ərzində sizinlə əlaqə saxlayacağıq."
+  },
+  "deliveryForm": {
+    "title": "Yango Çatdırılma Tərəfdaşı ol",
+    "vehicleType": "Avtomobil Növünü Seç",
+    "carDelivery": "Avtomobil Çatdırılması",
+    "carDeliveryDesc": "Böyük sifarişlər və uzun məsafələr üçün mükəmməl. Daha yüksək qazanc potensialı.",
+    "bikeDelivery": "Motosiklet Çatdırılması",
+    "bikeDeliveryDesc": "Qısa məsafələr üçün sürətli və səmərəli. Aşağı yanacaq xərcləri və asan parkinq.",
+    "carBenefits": "Avtomobil Çatdırılması Faydaları:",
+    "carBenefit1": "Böyük sifarişləri və çoxlu çatdırılmaları idarə et",
+    "carBenefit2": "Sən və çatdırılmalar üçün hava qorunması",
+    "carBenefit3": "Səyahət başına daha yüksək qazanc potensialı",
+    "carBenefit4": "Uzun məsafəli çatdırılmalar üçün uyğun",
+    "bikeBenefits": "Motosiklet Çatdırılması Faydaları:",
+    "bikeBenefit1": "Trafik vasitəsilə sürətli naviqasiya",
+    "bikeBenefit2": "Aşağı yanacaq və texniki xidmət xərcləri",
+    "bikeBenefit3": "Asan parkinq və manevr",
+    "bikeBenefit4": "Qısa məsafəli çatdırılmalar üçün mükəmməl",
+    "personalInfo": "Şəxsi Məlumat",
+    "fullName": "Tam ad",
+    "email": "E-poçt ünvanı",
+    "phone": "Telefon nömrəsi",
+    "dateOfBirth": "Doğum tarixi",
+    "licenseVehicleInfo": "Lisenziya və Avtomobil Məlumatı",
+    "licenseNumber": "Sürücülük vəsiqəsi nömrəsi",
+    "licenseState": "Lisenziya ştatı",
+    "licenseExpiry": "Lisenziya bitmə tarixi",
+    "vehicleMake": "Avtomobil markası",
+    "vehicleModel": "Avtomobil modeli",
+    "vehicleYear": "Avtomobil ili",
+    "vehicleColor": "Avtomobil rəngi",
+    "licensePlate": "Nömrə nişanı",
+    "bikeMake": "Motosiklet markası",
+    "bikeModel": "Motosiklet modeli",
+    "bikeYear": "Motosiklet ili",
+    "bikeColor": "Motosiklet rəngi",
+    "nextSteps": "Növbəti addımlar:",
+    "reviewTime": "Müraciətini 24-48 saat ərzində nəzərdən keçirəcəyik",
+    "backgroundCheck": "Arxa plan yoxlaması aparılacaq",
+    "vehicleInspection": "Avtomobil müayinəsi planlaşdırılacaq",
+    "emailUpdates": "Müraciət statusu haqqında e-poçt yeniləmələri alacaqsan",
+    "trainingSession": "Təsdiq alındıqdan sonra təlim sessiyası təqdim ediləcək",
+    "previous": "Əvvəlki",
+    "next": "Növbəti",
+    "submitApplication": "Müraciəti göndər",
+    "successMessage": "Çatdırılma müraciəti uğurla göndərildi! Məlumatlarını nəzərdən keçirəcəyik və 24-48 saat ərzində sizinlə əlaqə saxlayacağıq."
+  },
+  "entrepreneurForm": {
+    "title": "Yango Sahibkarı ol",
+    "subtitle": "Nəqliyyat biznesinizi böyütmək üçün Yango ilə tərəfdaşlıq edin",
+    "businessPartnership": "Biznes Tərəfdaşlığı",
+    "partnershipDesc": "Sahibkar proqramımıza qoşulun və Yango platforması, texnologiyası və dəstək sistemi ilə nəqliyyat biznesinizi genişləndirin.",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "phone": "Telefon nömrəsi",
+    "companyName": "Şirkət adı (İstəyə bağlı)",
+    "companyPlaceholder": "Tətbiq olunarsa şirkət adınızı daxil edin",
+    "numberOfCars": "Avtomobil sayı",
+    "numberOfCarsPlaceholder": "Avtomobil sayını daxil edin",
+    "workConditions": "Üstünlük verilən İş Şərtləri (Birdən çox seçim edə bilərsən)",
+    "salaryBased": "Maaş əsaslı",
+    "rentBased": "İcarə əsaslı",
+    "percentBased": "Faiz əsaslı",
+    "mixed": "Qarışıq",
+    "selectAtLeastOne": "Zəhmət olmasa ən azı bir iş şərti seç",
+    "salaryBasedDesc": "Sürücülər üçün sabit aylıq maaş",
+    "rentBasedDesc": "Sürücülər sizdən avtomobil icarəyə götürür",
+    "percentBasedDesc": "Gəlir bölüşdürmə modeli",
+    "mixedDesc": "Müxtəlif modellərin kombinasiyası",
+    "whatHappensNext": "Bundan sonra nə olur?",
+    "contactTime": "Biznes inkişaf komandamız 24 saat ərzində sizinlə əlaqə saxlayacaq",
+    "discussTerms": "Tərəfdaşlıq şərtlərini müzakirə edəcəyik",
+    "vehicleInspection": "Avtomobil müayinəsi və sənədləşdirmə prosesi",
+    "driverOnboarding": "Sürücü qəbulu və təlim dəstəyi",
+    "launchFleet": "Avtomobil parkınızı Yango platformasında işə salın",
+    "entrepreneurBenefits": "Sahibkar Faydaları:",
+    "platformAccess": "Yango texnologiya platformasına çıxış",
+    "marketingSupport": "Marketinq və müştəri cəlb etmə dəstəyi",
+    "technicalSupport": "24/7 texniki və əməliyyat dəstəyi",
+    "flexibleModels": "Ehtiyaclarınıza uyğun çevik biznes modelləri",
+    "analyticsTools": "Real vaxt analitika və hesabat alətləri",
+    "submitApplication": "Tərəfdaşlıq Müraciətini Göndər",
+    "successMessage": "Sahibkar müraciəti uğurla göndərildi! Biznes inkişaf komandamız tərəfdaşlıq imkanlarını müzakirə etmək üçün 24 saat ərzində sizinlə əlaqə saxlayacaq."
+  }
+}
