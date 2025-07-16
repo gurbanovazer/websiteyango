@@ -200,7 +200,7 @@ const EntrepreneurSignupForm: React.FC<EntrepreneurSignupFormProps> = ({ isOpen,
                       className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
                     />
                     <span className="ml-2 text-sm text-gray-700 capitalize">
-                      {t(`entrepreneurForm.${condition.replace('-', '')}`)}
+                      {t(`entrepreneurForm.${condition.replace(/-(\w)/g, (match, p1) => p1.toUpperCase())}`)}
                     </span>
                   </label>
                 ))}
