@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStartedClick }) => {
       <div 
         className="relative min-h-[500px] bg-cover bg-center flex items-center"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)'
+          backgroundImage: 'url(https://images.pexels.com/photos/1118448/pexels-photo-1118448.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=2)'
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
