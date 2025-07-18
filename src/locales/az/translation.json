@@ -9,7 +9,8 @@
   "hero": {
     "title": "Yango ilə daha çox qazan",
     "subtitle": "Öz cədvəlinə görə qazanc əldə et. Yango ilə sürücülük etmək üçün qeydiyyatdan keç və bu gün qazanmağa başla.",
-    "getStarted": "Başla"
+    "getStarted": "Online qeydiyyat" ,
+    "contactWhatsApp": "Регистрация через WhatsApp"
   },
   "serviceSelection": {
     "title": "Xidmət növünü seçin",
