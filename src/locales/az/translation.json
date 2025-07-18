@@ -25,7 +25,7 @@
     "title": "Niyə Yango ilə sürücülük etməli?",
     "subtitle": "Yango ilə əməkdaşlığın çevikliyi və faydalarından həzz alan sürücülər icmasına qoşul.",
     "flexibleHours": {
-      "title": "Rahat iş saatları",
+      "title": "Sərbəst iş saatları",
       "description": "Öz cədvəlini təyin et və sənə uyğun vaxtda işlə."
     },
     "highBonuses": {
@@ -33,12 +33,12 @@
       "description": "Aktiv iş və keyfiyyətli xidmətə görə əlavə bonuslar əldə edin."
     },
     "lowCommissions": {
-      "title": "Aşağı komissiyalar",
-      "description": "Aşağı kommisiyalar ilə daha çox qazanın."
+      "title": "Ən aşağı komissiyalar",
+      "description": "Parkımıza qoşularaq ən aşağı komissiyalar ilə işləyin."
     },
     "dailyCashout": {
-      "title": "Gündəlik nağdlaşdırma",
-      "description": "Pulunuzu hər gün əlavə komissiya olmadan nağdlaşdırın."
+      "title": "Anında nağdlaşdırma",
+      "description": "Pulunuzu anında əlavə komissiya olmadan nağdlaşdırın."
     }
   },
   "howItWorks": {
@@ -58,12 +58,12 @@
   },
   "faq": {
     "title": "Tez-tez verilən suallar",
-    "question1": "Yango ilə sürücülük etmək üçün tələblər nələrdir?",
-    "answer1": "Yango ilə sürücülük etmək üçün ən azı 21 yaşında olmalısan, etibarlı sürücülük vəsiqəsin olmalı, uyğun avtomobilə sahib olmalı və ya ona çıxışın olmalı və arxa plan yoxlamasından keçməlisən. Avtomobilin 2017-ci il və ya daha yenisi olmalı və avtomobil müayinəsindən keçməlidir.",
-    "question2": "Necə maaş alıram?",
-    "answer2": "Ödənişlər gündəlik olaraq işlənir və birbaşa bank hesabına köçürülür. Qazancını sürücü proqramı vasitəsilə real vaxtda izləyə və ətraflı ödəniş tarixçəsinə baxa bilərsən.",
+    "question1": "Yango sürücü olmsü üçün tələblər nələrdir?",
+    "answer1": "Yango ilə sürücülük etmək üçün ən azı 21 yaşında olmalısan, etibarlı sürücülük vəsiqəsin olmalı, avtomobilin buraxılış kartı olmalı, sürücünün sertifikatı olmalıdır.",
+    "question2": "Pulu necə nağdlaşdıra bilərəm?",
+    "answer2": "Biz sizə təqdim etdiyimiz tətbiq vasitəsi ilə pulunuzu ani nağdlaşdıra bilərsiniz.",
     "question3": "Yango hansı dəstəyi təklif edir?",
-    "answer3": "Yango sürücü proqramı, telefon və e-poçt vasitəsilə 24/7 dəstək təqdim edir. ."
+    "answer3": "Yango Pro tətbiqi daxilində 24/7 texniki dəstəkdə yazmaq ilə və ya Whatsapp vasitəsi ilə istənilən sualınıza cavab ala bilərsiniz. ."
   },
   "cta": {
     "title": "Yola çıxmağa hazırsan?",
