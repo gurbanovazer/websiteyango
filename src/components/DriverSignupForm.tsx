@@ -13,11 +13,7 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
-    mobileNumber: '',
-    hasOwnCar: '',
-    carModel: '',
-    carYear: '',
-    workPreferences: [] as string[]
+    mobileNumber: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -28,14 +24,6 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
     }));
   };
 
-  const handleWorkPreferenceChange = (preference: string) => {
-    setFormData(prev => ({
-      ...prev,
-      workPreferences: prev.workPreferences.includes(preference)
-        ? prev.workPreferences.filter(p => p !== preference)
-        : [...prev.workPreferences, preference]
-    }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,10 +35,10 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
       const applicationData: DriverApplication = {
         full_name: formData.fullName,
         mobile_number: formData.mobileNumber,
-        has_own_car: formData.hasOwnCar === 'yes',
-        car_model: formData.hasOwnCar === 'yes' ? formData.carModel : null,
-        car_year: formData.hasOwnCar === 'yes' ? parseInt(formData.carYear) : null,
-        work_preferences: formData.hasOwnCar === 'no' ? formData.workPreferences : null
+        has_own_car: false,
+        car_model: null,
+        car_year: null,
+        work_preferences: null
       };
 
       const { error } = await supabase
@@ -71,11 +59,7 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
         setIsSubmitted(false);
         setFormData({
           fullName: '',
-          mobileNumber: '',
-          hasOwnCar: '',
-          carModel: '',
-          carYear: '',
-          workPreferences: []
+          mobileNumber: ''
         });
       }, 3000);
     } catch (error) {
@@ -147,94 +131,12 @@ const DriverSignupForm: React.FC<DriverSignupFormProps> = ({ isOpen, onClose }) 
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                {t('driverForm.hasOwnCar')} *
-              </label>
-              <select
-                name="hasOwnCar"
-                value={formData.hasOwnCar}
-                onChange={handleInputChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-              >
-                <option value="">{t('driverForm.selectOption')}</option>
-                <option value="yes">{t('driverForm.yes')}</option>
-                <option value="no">{t('driverForm.no')}</option>
-              </select>
-            </div>
-
-            {formData.hasOwnCar === 'yes' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('driverForm.carModel')} *
-                  </label>
-                  <input
-                    type="text"
-                    name="carModel"
-                    value={formData.carModel}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="e.g., Toyota Camry"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('driverForm.carYear')} *
-                  </label>
-                  <input
-                    type="number"
-                    name="carYear"
-                    value={formData.carYear}
-                    onChange={handleInputChange}
-                    required
-                    min="2000"
-                    max="2024"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
-                  />
-                </div>
-              </div>
-            )}
-
-            {formData.hasOwnCar === 'no' && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  {t('driverForm.workPreferences')} *
-                </label>
-                <div className="space-y-3">
-                  {['rent', 'salary-based', 'percent-based'].map((preference) => (
-                    <label key={preference} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={formData.workPreferences.includes(preference)}
-                        onChange={() => handleWorkPreferenceChange(preference)}
-                        className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
-                      />
-                      <span className="ml-2 text-sm text-gray-700 capitalize">
-                        {t(`driverForm.${preference.replace(/-(\w)/g, (match, p1) => p1.toUpperCase())}`)}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-                {formData.workPreferences.length === 0 && (
-                  <p className="text-sm text-red-600 mt-1">{t('driverForm.selectAtLeastOne')}</p>
-                )}
-              </div>
-            )}
-
           </div>
 
           <div className="flex justify-end mt-8 pt-6 border-t border-gray-200">
             <button
               type="submit"
-              disabled={formData.hasOwnCar === 'no' && formData.workPreferences.length === 0}
-              className={`px-8 py-3 rounded-lg font-medium transition-colors ${
-                formData.hasOwnCar === 'no' && formData.workPreferences.length === 0
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-red-600 text-white hover:bg-red-700'
-              }`}
+              className="px-8 py-3 rounded-lg font-medium transition-colors bg-red-600 text-white hover:bg-red-700"
             >
               {t('driverForm.submitApplication')}
             </button>
